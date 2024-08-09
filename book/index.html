@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>lovolの小说珍藏网</title>
+    <style>
+        /* CSS样式 */
+        body {
+            font-family: 'Arial', sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f5f5f5;
+        }
+
+        header, footer {
+            background-color: #333;
+            color: white;
+            text-align: center;
+            padding: 10px 0;
+        }
+
+        main {
+            max-width: 960px;
+            margin: 20px auto;
+            padding: 0 20px;
+        }
+
+        .novel-list {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
+        }
+
+        .novel-item {
+            width: calc(50% - 10px);
+            margin-bottom: 20px;
+        }
+
+        .novel-cover {
+            width: 100%;
+            height: auto;
+            cursor: pointer;
+        }
+
+        .novel-title {
+            margin-top: 5px;
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>lovolの小说导航</h1>
+    </header>
+    <main>
+        <div class="novel-list">
+            <!-- 小说条目将在这里添加 -->
+        </div>
+    </main>
+    <footer>
+        <p>  2024 lovolの小说导航网站</p>
+    </footer>
+    <script>
+        // JavaScript代码
+        document.addEventListener('DOMContentLoaded', function() {
+            // 模拟数据
+            const novels = [
+                { title: '败犬女主太多了!', cover: 'http://img.wenku8.com/image/3/3057/3057s.jpg', file: 'https://dl1.wenku8.com/down/txtgbk/3/3057.txt' },
+                { title: '通往夏天的隧道，再见的出口', cover: 'http://img.wenku8.com/image/3/3027/3027s.jpg', file: 'https://dl1.wenku8.com/down/txtgbk/3/3027.txt' }
+            ];
+
+            const novelList = document.querySelector('.novel-list');
+
+            novels.forEach(novel => {
+                const novelItem = document.createElement('div');
+                novelItem.classList.add('novel-item');
+
+                const cover = document.createElement('img');
+                cover.src = novel.cover;
+                cover.alt = novel.title;
+                cover.classList.add('novel-cover');
+                cover.onclick = () => window.location.href = novel.file;
+
+                const title = document.createElement('p');
+                title.textContent = novel.title;
+                title.classList.add('novel-title');
+
+                novelItem.appendChild(cover);
+                novelItem.appendChild(title);
+
+                novelList.appendChild(novelItem);
+            });
+        });
+    </script>
+</body>
+</html>
